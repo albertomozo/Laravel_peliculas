@@ -23,10 +23,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-/* Route::get('/peliculas', function () {
+/* Route::get('/peliculas', function () {S
     return view('peliculas');
 })->name('peliculas'); */
 Route::get('/peliculas',[PeliculasController::class,'index'])->name('peliculas');
+Route::get('/peliculas/{id}',[PeliculasController::class,'show'])->name('peliculas.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
