@@ -28,6 +28,9 @@ Route::get('/dashboard', function () {
 })->name('peliculas'); */
 Route::get('/peliculas',[PeliculasController::class,'index'])->name('peliculas');
 Route::get('/peliculas/{id}',[PeliculasController::class,'show'])->name('peliculas.show');
+Route::post('/peliculasbuscar',[PeliculaBuscarController::class,'store'])->name('peliculas.peliculas-buscar');
+Route::get('/peliculasbuscar',[PeliculasController::class,'index'])->name('peliculas'); // ecitar error al altualizar pagina en navegador
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
