@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PeliculasController;
+use App\Http\Controllers\PeliculaBuscarController;
 use Illuminate\Support\Facades\Route;
 
 /*

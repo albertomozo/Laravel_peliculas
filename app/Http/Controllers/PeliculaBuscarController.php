@@ -2,19 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Peliculas;
 use Illuminate\Http\Request;
 
-class PeliculasController extends Controller
+class PeliculaBuscarController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        // lista de las peliculas
-        $peliculas = Peliculas::get(); // Accede al Modelo select * from Peliculas
-        return view('peliculas.peliculas',['peliculas' => $peliculas]); // envia los datos del modelo a la vista
+        //
     }
 
     /**
@@ -31,24 +28,33 @@ class PeliculasController extends Controller
     public function store(Request $request)
     {
         //
+        $tmdb_apikey = env('TMDB_APIKEY');
+        $search = $request->search;
+        $pagina = 1;
+        $url = "https://api.themoviedb.org/3/search/movie?api_key=$tmdb_apikey&language=es&query=$search&page=1&include_adult=false&page=$pagina";
+        $resultado = file_get_contents($url);
+        
+        //return $resultado;
+        $items = json_decode($resultado, true);
+        //return $items;
+      
+        return view('peliculas.peliculas-buscar',['peliculas'=>$items]);
+
+
     }
 
     /**
      * Display the specified resource.
      */
-    public function show( $id)
+    public function show(string $id)
     {
-        
-        //return $id;
-        $pelicula = Peliculas::findOrFail($id);   // Accede al Modelo   y obtiene los datos ...  where id = $id
-        return view('peliculas.show', ['pelicula'=>$pelicula]);   
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Peliculas $peliculas)
+    public function edit(string $id)
     {
         //
     }
@@ -56,7 +62,7 @@ class PeliculasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Peliculas $peliculas)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -64,12 +70,8 @@ class PeliculasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Peliculas $peliculas)
+    public function destroy(string $id)
     {
         //
     }
-
-  
-
-
 }

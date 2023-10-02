@@ -20,7 +20,8 @@
                     <x-nav-link :href="route('peliculas')" :active="request()->routeIs('peliculas')">
                         {{ __('Films') }}
                     </x-nav-link>
-                </div>
+                </div> 
+           
             </div>
 
             <!-- Settings Dropdown -->
