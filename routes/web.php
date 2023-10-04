@@ -35,8 +35,10 @@ Route::get('/peliculas/cambiarCampo/{id}/{campo}/{valor}',[PeliculasController::
 Route::get('/peliculas',[PeliculasController::class,'index'])->name('peliculas');
 Route::get('/peliculas/{id}',[PeliculasController::class,'show'])->name('peliculas.show');
 Route::get('/peliculas/edit/{id}',[PeliculasController::class,'edit'])->name('peliculas.edit');
+Route::POST('/peliculas/create',[PeliculasController::class,'create'])->name('peliculas.create');
 Route::delete('/peliculas/{id}',[PeliculasController::class,'destroy'])->name('peliculas.destroy');
 Route::post('/peliculasbuscar',[PeliculaBuscarController::class,'store'])->name('peliculas.peliculas-buscar');
+Route::get('/peliculasbuscar/{id}',[PeliculaBuscarController::class,'show'])->name('peliculas.peliculas-tmdb');
 Route::get('/peliculasbuscar',[PeliculasController::class,'index'])->name('peliculas'); // ecitar error al altualizar pagina en navegador
 Route::get('/peliculas/confirm/{id}/{titulo}',[PeliculasController::class,'confirm'])->name('peliculas.confirm');
 Route::put('/peliculas/update/{id}', [PeliculasController::class,'update'])->name('peliculas.update');

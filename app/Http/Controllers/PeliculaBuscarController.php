@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Symfony\Component\VarDumper\VarDumper;
 
 class PeliculaBuscarController extends Controller
 {
@@ -48,7 +49,19 @@ class PeliculaBuscarController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // acceso a api para mostrar pelicula.
+        // codigo php https://github.com/albertomozo/proyectofinal2023/blob/main/admin/peliculas_nueva.php
+        $tmdb_apikey = env('TMDB_APIKEY');
+        $url = "https://api.themoviedb.org/3/movie/$id?api_key=$tmdb_apikey&language=es";
+        $resultado = file_get_contents($url);
+        $items = json_decode($resultado, true);
+        //return (var_dump($items));
+
+        // podriamos plantarnos hacer esto en JS y acceder a los demas end - Points de la api
+        
+
+        // ir a la vista 
+        return view('peliculas.peliculas-tmdb',['pelicula'=>$items]);
     }
 
     /**
