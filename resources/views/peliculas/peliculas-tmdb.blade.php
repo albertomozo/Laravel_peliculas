@@ -62,18 +62,19 @@
                     <!-- formulario insercion peliculas -->
                     <form class="user" method="POST" action=" {{route('peliculas.create',['id' => $pelicula['id']]) }} " >
                         @csrf
-                        @method("PELICULA")   
+                        @method("POST")   
                         <div class="form-group row">
                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                <input type="text" name="tmdb_id" value="{{ $pelicula['id'] }}">
-                                <p>Titulo</p>
-                                <input type="text" class="form-control form-control-user" id="titulo" name="titulo"
-                                    placeholder="Titulo" value="{{ $pelicula['original_title'] }}">
+                                <input type="hidden" name="tmdb_id" value="{{ $pelicula['id'] }}">
+                              
+                                <input type="hidden"  name="titulo" value="{{ $pelicula['original_title'] }}">
+                                    <input type="hidden"  name="poster"    value="{{$pelicula['poster_path']}}">
+                                    <input type="hidden" name="estado" value="D">
+                                    <input type="hidden" name="estreno" value="{{$pelicula['release_date']}}">
+                                    <input type="hidden" name="created_at" value="{{ date("Y/m/d H:i:s") }}"> 
+                                    <input type="hidden" name="modified_at" value="{{ date("Y/m/d H:i:s") }}">    
                             </div>
-                       <!--      <div class="col-sm-6">
-                                <input type="text" class="form-control form-control-user" id="exampleLastName"
-                                    placeholder="Last Name">
-                            </div> -->
+                   
                         </div>
                         <div class="form-group">
                             <p>Opinión</p>

@@ -20,9 +20,14 @@ class PeliculasController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        Peliculas::create(request()->all());
+        return redirect()->route('peliculas')
+          ->with('success', 'Post created successfully.');
+      
+        return request();
     }
 
     /**

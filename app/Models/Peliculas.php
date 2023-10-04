@@ -9,6 +9,6 @@ class Peliculas extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'titulo','overview','opinion'
-    ];
+        'tmdb_id','titulo','overview','opinion','poster','estreno','estado'
+        ];
 }
