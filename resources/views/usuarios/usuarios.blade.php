@@ -35,16 +35,54 @@
                         </tfoot>
                         <tbody>
                             @foreach($usuarios as $usuario)
-                            <tr id="pel_{{ $usuario->id }}">
+                            <tr id="usuario_{{ $usuario->id }}">
                                 <td>{{ $usuario->id }}</td>
                                 <td>{{ $usuario->name }}</td>
-                                <td>{{ $usuario->rol }}</td>                   
+                                <td>
+                                    <select id="rol-{{$usuario->id}}" name="rol" onchange="cambiarRol(this.value, {{ $usuario->id }})">>
+                                        @foreach($roles as $rol)
+                                            <option value="{{ $rol }}" {{ $usuario->rol == $rol ? 'selected' : '' }}>
+                                                {{ $rol }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    
+                                    
+                                    {{ $usuario->rol }}</td>                   
                                     
                                 
                             </tr>
                             @endforeach
                             </tbody>
                         </table>
+                        <script>
+                           
+                             function cambiarRol(rolSeleccionado, usuarioId) {
+                                    // Realiza una solicitud fetch o ejecuta la lógica que desees aquí
+                                    // Puedes usar rolSeleccionado y usuarioId para realizar operaciones en el servidor
+                                    
+                                    // Por ejemplo, puedes enviar una solicitud POST al servidor para actualizar el rol del usuario
+                                    fetch('/actualizar-rol', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                            'X-CSRF-TOKEN': '{{ csrf_token() }}' // Asegúrate de incluir el token CSRF si estás utilizando Laravel
+                                        },
+                                        body: JSON.stringify({
+                                            usuario_id: usuarioId,
+                                            nuevo_rol: rolSeleccionado
+                                        })
+                                    })
+                                    .then(response => {
+                                        console.log(response);
+                                        // Maneja la respuesta del servidor
+                                    })
+                                    .catch(error => {
+                                        console.error('Error:', error);
+                                    });
+                                }
+                                                   
+                            </script>
                         
                         
                     

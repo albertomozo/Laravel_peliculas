@@ -46,6 +46,7 @@ Route::put('/peliculas/update/{id}', [PeliculasController::class,'update'])->nam
 
 // rutas usuarios
 Route::get('/usuarios',[usuariosGestionController::class,'index'])->name('usuarios');
+Route::post('/actualizar-rol',[usuariosGestionController::class,'cambiarRol'])->name('actualizar-rol');
 // fin routas usuarios
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

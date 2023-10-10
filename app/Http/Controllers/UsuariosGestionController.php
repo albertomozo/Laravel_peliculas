@@ -10,11 +10,12 @@ class UsuariosGestionController extends Controller
     /**
      * Display a listing of the resource.
      */
+    public $roles = ['SuperAdmin','admin','usuario'];
     public function index()
     {
         $usuarios = User::get();
         //return $usuarios;
-        return view('usuarios.usuarios',['usuarios' => $usuarios]);
+        return view('usuarios.usuarios',['usuarios' => $usuarios, 'roles' => $this->roles]);
     }
 
     /**
@@ -63,5 +64,23 @@ class UsuariosGestionController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function cambiarRol(Request $request)
+    {
+        //usuario_id: usuarioId,
+        //nuevo_rol: rolSeleccionado
+        $id=$request->usuario_id;
+        $valor = $request->nuevo_rol;
+        $user= User::find($id);
+        //return (var_dump($peli));
+
+        //return ($peli->estado);
+ 
+        $user->rol = $valor;
+ 
+        $user->save();
+        return $request;
+
     }
 }

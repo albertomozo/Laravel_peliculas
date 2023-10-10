@@ -22,11 +22,11 @@
                     </x-nav-link>
                 </div> 
                 @if( Auth::user()->rol == 'SuperAdmin')
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('usuarios')" :active="request()->routeIs('usuarios')">
-                        {{ __('Users') }}
-                    </x-nav-link>
-                </div> 
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('usuarios')" :active="request()->routeIs('usuarios')">
+                            {{ __('Users') }}
+                        </x-nav-link>
+                    </div> 
                 @endif
            
             </div>
