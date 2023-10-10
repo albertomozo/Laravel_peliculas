@@ -3,8 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PeliculasController;
 use App\Http\Controllers\PeliculaBuscarController;
-use App\Http\Controllers\PelisCambiarCampo;
+use App\Http\Controllers\UsuariosGestionController;
 use Illuminate\Support\Facades\Route;
+
 
 
 /*
@@ -43,6 +44,9 @@ Route::get('/peliculasbuscar',[PeliculasController::class,'index'])->name('pelic
 Route::get('/peliculas/confirm/{id}/{titulo}',[PeliculasController::class,'confirm'])->name('peliculas.confirm');
 Route::put('/peliculas/update/{id}', [PeliculasController::class,'update'])->name('peliculas.update');
 
+// rutas usuarios
+Route::get('/usuarios',[usuariosGestionController::class,'index'])->name('usuarios');
+// fin routas usuarios
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

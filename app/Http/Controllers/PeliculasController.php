@@ -25,7 +25,7 @@ class PeliculasController extends Controller
         //
         Peliculas::create(request()->all());
         return redirect()->route('peliculas')
-          ->with('success', 'Post created successfully.');
+          ->with('success', 'Pelicula "' .request()->titulo .'" creada correctamente.');
       
         return request();
     }
