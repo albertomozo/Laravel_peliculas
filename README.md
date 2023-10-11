@@ -1,66 +1,88 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Documention
 
-## About Laravel
+[documentation](https://docs.google.com/presentation/d/1SEMnKyzjlw16Ysewkqgp2XxGd1Wev7pug0OEetiCltM/edit?usp=sharing)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+En este enlace encontraras paso a paso como se ha elaborado este proyecto. 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## About Project
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Este Repositorio Contiene el código del trabajo final de un curso de BACK con LARAVEL.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+La aplicación consiste en un gestor de usuario y de peliculas, que se van a alamacenar en una BAse de Datos. 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Usuarios : Partimos de los usuarios que proporcionan las migraciomes de Laravel, instalamos paquete Breeze y añadimos algunos campos. El más importante es rol, que nos permite dar permisos diferente a nuestros usuarios.
 
-## Laravel Sponsors
+Peliculas : Realizamos una busqueda de titulos  a traves de la web  [https://www.themoviedb.org/](https://www.themoviedb.org/). Por lo tanto hay que registrarse y ontener una API_KEY
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Requerimientos
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+PHP 8.1
+mysql 
+Composer
+npm
 
-## Contributing
+## Guia Instalación
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Este es un proyecto de prueba realizado por Alberto Mozo
 
-## Code of Conduct
+1. Descarga el repositorio
+2. Descromprime la carpeta dentro de un acarpeta de tu servidor
+3. Renombra la carpeta (Opcional)
+4. Entra a la carpeta desde la terminal cd directorio/de/la/carpeta
+5. Copia el contenido del archivo .env.example a un nuevo archivo llamado .env
+6. Modifica las variables de conexión del nuevo archivo .env
+Define los datos de conexión
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+Introduce la api key obtenedida de [https://www.themoviedb.org/]
+TMDB_APIKEY = "**************************"
+TMDB_ROUTE_POSTER = "https://image.tmdb.org/t/p/w154"
+TMDB_ROUTE_IMAGE_500 = "https://image.tmdb.org/t/p/w500"
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. Crea una base de datos para el proyecto
+7. Ejecuta composer install
+8. Ejecuta php artisan key:generate
+9. Ejecuta php artisan migrate
+10. Abre la aplicación en el navegador
+    php artisan serve
+    npm run dev
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+
+## Instalación
+
+Se necesita tener instado composer y npm (node.js)
+
+git clone https://github.com/albertomozo/Laravel_peliculas.git
+
+composer install
+
+configurar .env a partir de .env.example
+
+php artisan migrate
+
+php artisan application:key
+
+## Puesta en marcha
+
+En una terminal dejar en ejecución 
+php artisan serve
+
+En otra terminal dejar en ejecución 
+npm run dev
+
+## Aplicacion Sponsors
+
+Alberto Mozo
+
+
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
