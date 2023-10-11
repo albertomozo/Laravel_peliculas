@@ -93,7 +93,7 @@
                                 </td>
                                 <td>
 {{--                                     <a href="{{ route('peliculas.confirm',['id' => $pelicula->id,'titulo'=>$pelicula->titulo])}}">borrar</a> --}}
-<a href="{{ route('peliculas.confirm',['id' => $pelicula->id,'titulo' => 'titulo'])}}">borrar</a> 
+<a href="{{ route('peliculas.confirm',['id' => $pelicula->id,'titulo' => $pelicula->titulo])}}">borrar</a> 
                                 </td>
                             </tr>
                             @endforeach

@@ -83,7 +83,11 @@ class PeliculasController extends Controller
     public function destroy( $id)
     {
         //
-        return $id;
+        $pelicula = Peliculas::find($id);
+        $pelicula->delete();
+        return redirect('/peliculas');
+        //return $id;
+        
     }
 
     public function confirm( $id,string  $titulo)
@@ -103,7 +107,7 @@ class PeliculasController extends Controller
 
         //return ($peli->estado);
  
-        $peli->estado = $valor;
+        $peli->$campo = $valor;
  
         $peli->save();
         return   redirect('/peliculas');

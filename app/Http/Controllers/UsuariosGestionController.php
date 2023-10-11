@@ -80,7 +80,9 @@ class UsuariosGestionController extends Controller
         $user->rol = $valor;
  
         $user->save();
-        return $request;
+        $mensaje = "El usuario : $id ha cambiado el rol a : $valor";
+        return response()->json(['message' => $mensaje]);
+        //return $mensaje;
 
     }
 }

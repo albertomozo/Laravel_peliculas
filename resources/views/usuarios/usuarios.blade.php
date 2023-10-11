@@ -73,9 +73,13 @@
                                             nuevo_rol: rolSeleccionado
                                         })
                                     })
-                                    .then(response => {
-                                        console.log(response);
+                                    .then(response => response.json())
+                                    .then(data => {
                                         // Maneja la respuesta del servidor
+                                        if (data.message) {
+                                            // Muestra el mensaje de confirmación
+                                            alert(data.message); // Puedes personalizar esto con una ventana modal o una notificación
+                                        }
                                     })
                                     .catch(error => {
                                         console.error('Error:', error);
